@@ -25,7 +25,7 @@ public class FogDebugHud {
     private static boolean enabled = false;
 
     public static void render(Gui inGameHud, GuiGraphics context, float tickDelta) {
-        if (enabled && Minecraft.renderNames() && !Minecraft.getInstance().options.renderDebug) {
+        if (enabled && Minecraft.renderNames() && !Minecraft.getInstance().getDebugOverlay().showDebugScreen()) {
             LocalPlayer clientPlayerEntity = Minecraft.getInstance().player;
             if (clientPlayerEntity != null) {
                 Optional<ResourceKey<Biome>> registryKey = clientPlayerEntity.level().getBiome(clientPlayerEntity.getOnPos()).unwrapKey();
